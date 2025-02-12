@@ -8,17 +8,28 @@
 # Twitter Sentiment Analysis Project
 
 # Project Overview
-This project focuses on performing sentiment analysis on a dataset of tweets. The goal is to classify tweets as positive or negative based on their content. The project involves several steps, including data loading, preprocessing, exploratory data analysis (EDA), and sentiment classification using machine learning models.
+This project focuses on performing sentiment analysis on a dataset of tweets. 
+
+The goal is to classify tweets as positive or negative based on their content. 
+
+The project involves several steps, including data loading, preprocessing, exploratory data analysis (EDA), and sentiment classification using machine learning models.
 
 # Project Structure
 
-├── data/               # Contains datasets used for training and testing
+├── data/  # Contains datasets used for training and testing
+
 │   ├──        # Dataset
+
 ├── notebooks/          # Jupyter notebooks for exploration and analysis
+
 │   ├── Twitter_sentiment_analysis_Group6.ipynb  # Main notebook
+
 ├── models/             # Saved models
+
 │   ├── deepl_learning_model.h5  # Deepl Trained sentiment analysis model
+
 │   ├── fine_turned_model.h5     #Fine trained
+
 ├── README.md           # Project documentation
 
 # Files
