@@ -1,11 +1,8 @@
-# Sentiment-analysis_Group-project
+# Twitter Sentiment Analysis Project
 
   ## **Sentiment Prediction**
 ![Image](https://github.com/user-attachments/assets/dfb1cf50-b589-40ea-b8cc-890488998586)
 
-# Sentiment-analysis_Group-project
-
-# Twitter Sentiment Analysis Project
 
 # Project Overview
 This project focuses on performing sentiment analysis on a dataset of tweets. 
