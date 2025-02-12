@@ -46,23 +46,29 @@ The dataset undergoes several preprocessing steps to prepare it for analysis and
 ## Exploratory Data Analysis (EDA)
 
 **Word Cloud**
+
 A word cloud is generated to visualize the most frequent words in the dataset. This helps in understanding the common themes and sentiments expressed in the tweets.
 
 **Correlation Matrix**
+
 A heatmap of the correlation matrix is plotted to understand the relationships between the numeric columns in the dataset.
 
 **Missing Values Handling**
+
 The dataset is checked for missing values but there were no missing values seen.
 
 **Hashtag Analysis**
+
 Hashtags are extracted from both positive and negative tweets, and the most frequent hashtags are visualized using bar plots.
 
 
 ## Model Implementation
+
 The following models are implemented and compared for their performance on the sentiment analysis task:
 Three Methods were used,
 
 ## Traditional Model (Logistic Regression)
+
 A Logistic Regression model is trained using TF-IDF vectorization.
 The TF-IDF vectorizer converts the text data into a matrix of TF-IDF features, which is then used to train the Logistic Regression model.
 The model is evaluated using accuracy and F1 score.
