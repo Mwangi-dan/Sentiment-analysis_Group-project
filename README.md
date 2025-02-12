@@ -109,6 +109,10 @@ seaborn: For enhanced visualizations.
 
 scikit-learn: For machine learning models and evaluation.
 
+nltk: For natural language processing tasks.
+
+wordcloud: For generating word clouds.
+
 # Conclusion
 
 This project provides a comprehensive approach to performing sentiment analysis on Twitter data. 
