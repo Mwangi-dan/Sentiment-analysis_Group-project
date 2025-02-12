@@ -13,7 +13,8 @@ The goal is to classify tweets as positive or negative based on their content.
   - **Data Cleaning**
   - **Exploratory Data Analysis (EDA)**
   - **Feature Engineering**
-  - **Model Training**\n
+  - **Model Training**
+    
         - Traditional Model(LogisticRegression)
         - Long Short-Term Memory(LSTM)
         - Transfer Model (BERT)
