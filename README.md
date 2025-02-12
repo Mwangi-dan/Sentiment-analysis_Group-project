@@ -13,7 +13,7 @@ The goal is to classify tweets as positive or negative based on their content.
   - **Data Cleaning**
   - **Exploratory Data Analysis (EDA)**
   - **Feature Engineering**
-  - **Model Training**
+  - **Model Training**\n
         - Traditional Model(LogisticRegression)
         - Long Short-Term Memory(LSTM)
         - Transfer Model (BERT)
@@ -128,6 +128,12 @@ BERT (Bidirectional Encoder Representations from Transformers) is a powerful tra
 | LSTM Model           | 95.5%    | 67.2%    | 69.0%      | 65.5%  |
 | Fine-Tuned LSTM      | 95.7%    | 66.8%    | 73.6%      | 61.1%  |
 | BERT Transformer     | 93.0%    | -        | -          | -      |
+
+
+## Usage
+- Download the notebook and run the cells
+- Save the models; either the traditional model or deep learning model
+- Run the model with words to gauge the sentiment of the words
 
 
 ## Conclusion
