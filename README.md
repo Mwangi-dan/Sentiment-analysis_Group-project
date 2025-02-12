@@ -9,118 +9,129 @@ This project focuses on performing sentiment analysis on a dataset of tweets.
 
 The goal is to classify tweets as positive or negative based on their content. 
 
-The project involves several steps, including data loading, preprocessing, exploratory data analysis (EDA), and sentiment classification using machine learning models.
-
-# Project Structure
-
-├── data/  # Contains datasets used for training and testing
-
-│   ├──        # Dataset
-
-├── notebooks/          # Jupyter notebooks for exploration and analysis
-
-│   ├── Twitter_sentiment_analysis_Group6.ipynb  # Main notebook
-
-├── models/             # Saved models
-
-│   ├── deepl_learning_model.h5  # Deepl Trained sentiment analysis model
-
-│   ├── fine_turned_model.h5     #Fine trained
-
-├── README.md           # Project documentation
-
-# Files
-. Twitter_sentiment_analysis_Group6.ipynb: The main Jupyter notebook containing the code for data loading, preprocessing, EDA, and sentiment analysis.
+# The Colab notebook follows a structured pipeline;
+  - **Data Cleaning**
+  - **Exploratory Data Analysis (EDA)**
+  - **Feature Engineering**
+  - **Model Training**
+        - Traditional Model(LogisticRegression)
+        - Long Short-Term Memory(LSTM)
+        - Transfer Model (BERT)
 
 
-. Twitter_Sentiments.csv: The dataset used for the analysis, stored in the Data folder.
+# Dataset
+The dataset is Downloaded and stored in google drive for easy access.
+This dataset contains the following features,
+  - **id:** Unique identifier for each tweet.
+  - **label:** Sentiment label (0 for negative, 1 for positive).
+  - **tweet:** The text content of the tweet.
+
+---
+## Preprocessing Steps
+The dataset undergoes several preprocessing steps to prepare it for analysis and modeling this includes removing special characters, converting all text to lowercase, and removing stop.
+
+1. **Removing User Handles:** User handles (e.g., @user) are removed from the tweets.
+
+2. **Removing Special Characters, Punctuations, and Numbers:** Non-alphabetic characters are replaced with spaces.
+
+3. **Removing Short Words:** Words with fewer than 3 characters are removed.
+
+4. **Tokenization:** The tweets are split into individual words.
+
+5. **Stemming:** Words are reduced to their root form using the Porter Stemmer.
 
 
-. README.md: This file, providing an overview of the project and instructions for reproducing the results.
+----
+
+## Exploratory Data Analysis (EDA)
+
+**Word Cloud**
+A word cloud is generated to visualize the most frequent words in the dataset. This helps in understanding the common themes and sentiments expressed in the tweets.
+
+**Correlation Matrix**
+A heatmap of the correlation matrix is plotted to understand the relationships between the numeric columns in the dataset.
+
+**Missing Values Handling**
+The dataset is checked for missing values but there were no missing values seen.
+
+**Hashtag Analysis**
+Hashtags are extracted from both positive and negative tweets, and the most frequent hashtags are visualized using bar plots.
 
 
-# Instructions for Reproducing Results
+## Model Implementation
+The following models are implemented and compared for their performance on the sentiment analysis task:
+Three Methods were used,
 
-1. Setting Up the Environment
-   
-To run the Jupyter notebook and reproduce the results, you need to set up a Python environment with the required libraries.
+## Traditional Model (Logistic Regression)
+A Logistic Regression model is trained using TF-IDF vectorization.
+The TF-IDF vectorizer converts the text data into a matrix of TF-IDF features, which is then used to train the Logistic Regression model.
+The model is evaluated using accuracy and F1 score.
 
-You can do this by following these steps:
+  - **Accuracy Score:** 0.9387
 
-a. Install Python: Ensure you have Python 3.7 or higher installed on your system.
+  - **F1 Score:** 0.6316
 
-b. Install Required Libraries (Via collabs)
+## Deep Learning Model (LSTM)
+A deep learning model using LSTM (Long Short-Term Memory) layers is implemented. 
+The model architecture includes:
 
-2. Downloading the Dataset
-   
-The dataset used in this project is Twitter_Sentiments.csv.
+- **Embedding Layer:** Converts words into dense vectors of fixed size.
 
-Ensure this file is placed in the Data folder.
+- **LSTM Layers**: Two LSTM layers with 128 and 64 units respectively, to capture sequential information in the text.
 
-4. Launch Jupyter Notebook(jupyter notebook via your local terminal)  or collabs:
-   
-a.  Running the Jupyter Notebook on collabs or Jupiter notebook after downloaded the notebook
+- **Batch Normalization:** Normalizes the outputs of the LSTM layers.
 
-b. Open the Notebook on collabs or jupiter Navigate to the Scripts folder and open Twitter_sentiment_analysis_Group6.ipynb.
+- **Dropout:** Regularization technique to prevent overfitting.
 
-c. Run the Notebook: Execute the cells in the notebook sequentially to perform the analysis.
+- **Dense Layer:** Output layer with a sigmoid activation function for binary classification.
 
-6. Data Preprocessing
-   
-The notebook includes steps for:
 
-Loading the dataset.
+## Fine-Tuned Model (LSTM with Hyperparameter Tuning)
+The deep learning model is fine-tuned with different hyperparameters to improve performance. 
+The fine-tuned model includes:
 
-Cleaning the tweets by removing special characters, stopwords, and performing stemming.
+**Embedding Layer:** Increased input dimension to 10,000 and output dimension to 256.
 
-Tokenizing the cleaned tweets.
+**LSTM Layers:** Two LSTM layers with 256 and 128 units respectively, and added recurrent dropout to prevent overfitting.
 
-5 . Exploratory Data Analysis (EDA)
+**Dense Layers:** Additional dense layer with 64 units and ReLU activation.
 
-The notebook includes visualizations such as:
+**Dropout:** Increased dropout rate to 0.3 for better regularization.
 
-. Word clouds to visualize frequent words in the dataset.
 
-. Distribution of positive and negative labels.
+## Transformer Model (BERT)
+A BERT-based model is implemented for sentiment analysis.
+BERT (Bidirectional Encoder Representations from Transformers) is a powerful transformer-based model that captures context from both directions in a text. The model is fine-tuned on the Twitter sentiment dataset.
 
-6. Sentiment Analysis
-   
-The notebook includes:
+**Accuracy Score:** 0.9301
 
-. Splitting the dataset into training and testing sets.
+## Evaluation Metrics
 
-. Training a machine learning model (e.g., Logistic Regression) on the preprocessed data.
+- LSTM has the best overall performance among the three models, with the highest accuracy (95.52%) and a decent F1 score (0.6728).
+- It strikes a good balance between performance and complexity, making it a strong choice for sentiment analysis tasks.
 
-. Evaluating the model's performance using accuracy and other metrics.
+- BERT has the potential to outperform LSTM, but in this project, it was not fine-tuned extensively, so its performance is slightly lower. 
+- With more training and fine-tuning, BERT could achieve better results.
 
-8. Saving Results
-   
-The results of the analysis, including visualizations and model outputs, are saved in the Outputs folder.
+- Logistic Regression is the simplest model and performs well in terms of accuracy (93.87%), but it struggles with the imbalanced dataset, as reflected in its lower F1 score (0.6316).
 
-# Dependencies
+ ## Metrics Table
+| Model                 | Accuracy | F1 Score | Precision | Recall |
+|-----------------------|----------|----------|------------|--------|
+| Logistic Regression  | 93.8%    | 63.1%    | -          | -      |
+| LSTM Model           | 95.5%    | 67.2%    | 69.0%      | 65.5%  |
+| Fine-Tuned LSTM      | 95.7%    | 66.8%    | 73.6%      | 61.1%  |
+| BERT Transformer     | 93.0%    | -        | -          | -      |
 
-pandas: For data manipulation and analysis.
 
-numpy: For numerical operations.
-
-matplotlib: For creating visualizations.
-
-seaborn: For enhanced visualizations.
-
-scikit-learn: For machine learning models and evaluation.
-
-nltk: For natural language processing tasks.
-
-wordcloud: For generating word clouds.
-
-# Conclusion
-
-This project provides a comprehensive approach to performing sentiment analysis on Twitter data. 
-
-By following the instructions, you can reproduce the results and gain insights into the sentiment expressed in the tweets.
+## Conclusion
+This project demonstrates the process of performing sentiment analysis on Twitter data using both traditional machine learning and deep learning approaches. The models achieved good accuracy, and the BERT-based model showed promising results. Further fine-tuning and experimentation with different models and hyperparameters could potentially improve performance.
 
 For any questions or issues, please refer to the project documentation or reach out to the project contributors.
 
-Mada by @Dohessiekkan, @Dani, @Ochan
+**Made by:**
+ 1. Daniel
+ 2. Ochan
+ 3. Xavier
 
 
