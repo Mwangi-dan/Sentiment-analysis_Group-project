@@ -27,7 +27,7 @@ This dataset contains the following features,
   - **label:** Sentiment label (0 for negative, 1 for positive).
   - **tweet:** The text content of the tweet.
 
-(Link to dataset)[https://www.analyticsvidhya.com/datahack/contest/practice-problem-twitter-sentiment-analysis/#]
+[Link to dataset](https://www.analyticsvidhya.com/datahack/contest/practice-problem-twitter-sentiment-analysis/#)
 
 ---
 ## Preprocessing Steps
